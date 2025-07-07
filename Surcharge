@@ -1,0 +1,12 @@
+def calculate_surcharge(base_price, percent_fee=0.026, flat_fee=0.15):
+    """
+    Returns the exact surcharge amount and final price to charge the customer
+    to offset processing fees.
+    """
+    total_charge = (base_price + flat_fee) / (1 - percent_fee)
+    surcharge = total_charge - base_price
+    return round(surcharge, 2), round(total_charge, 2)
+
+# Example usage:
+example = calculate_surcharge(100.00)
+print(f"Surcharge: ${example[0]}, Customer pays: ${example[1]}")
