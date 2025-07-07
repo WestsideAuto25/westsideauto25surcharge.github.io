@@ -1,12 +1,25 @@
 def calculate_surcharge(base_price, percent_fee=0.026, flat_fee=0.15):
     """
-    Returns the exact surcharge amount and final price to charge the customer
-    to offset processing fees.
+    Calculates the surcharge to add to a base price so that after
+    processing fees (percentage + flat), you receive the exact base amount.
+
+    Parameters:
+    - base_price (float): The amount you want to receive after fees.
+    - percent_fee (float): The percentage fee (default is 2.6% or 0.026).
+    - flat_fee (float): The flat fee added per transaction (default is $0.15).
+
+    Returns:
+    - surcharge (float): The amount to add to base_price to offset fees.
+    - total_charge (float): The total amount to charge the customer.
     """
+    if base_price <= 0:
+        raise ValueError("Base price must be greater than 0.")
+        
     total_charge = (base_price + flat_fee) / (1 - percent_fee)
     surcharge = total_charge - base_price
     return round(surcharge, 2), round(total_charge, 2)
 
 # Example usage:
-example = calculate_surcharge(100.00)
-print(f"Surcharge: ${example[0]}, Customer pays: ${example[1]}")
+surcharge, customer_total = calculate_surcharge(100.00)
+print(f"Surcharge: ${surcharge:.2f}, Customer pays: ${customer_total:.2f}")
+
