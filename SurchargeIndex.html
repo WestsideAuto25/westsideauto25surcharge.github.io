@@ -1,25 +1,47 @@
-def calculate_surcharge(base_price, percent_fee=0.026, flat_fee=0.15):
-    """
-    Calculates the surcharge to add to a base price so that after
-    processing fees (percentage + flat), you receive the exact base amount.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Surcharge Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    label, input {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Surcharge Calculator</h2>
 
-    Parameters:
-    - base_price (float): The amount you want to receive after fees.
-    - percent_fee (float): The percentage fee (default is 2.6% or 0.026).
-    - flat_fee (float): The flat fee added per transaction (default is $0.15).
+  <label for="basePrice">Base Price ($):</label>
+  <input type="number" id="basePrice" placeholder="Enter amount" step="0.01">
 
-    Returns:
-    - surcharge (float): The amount to add to base_price to offset fees.
-    - total_charge (float): The total amount to charge the customer.
-    """
-    if base_price <= 0:
-        raise ValueError("Base price must be greater than 0.")
-        
-    total_charge = (base_price + flat_fee) / (1 - percent_fee)
-    surcharge = total_charge - base_price
-    return round(surcharge, 2), round(total_charge, 2)
+  <button onclick="calculateSurcharge()">Calculate</button>
 
-# Example usage:
-surcharge, customer_total = calculate_surcharge(100.00)
-print(f"Surcharge: ${surcharge:.2f}, Customer pays: ${customer_total:.2f}")
+  <p id="result"></p>
+
+  <script>
+    function calculateSurcharge() {
+      const basePrice = parseFloat(document.getElementById('basePrice').value);
+      const percentFee = 0.026;
+      const flatFee = 0.15;
+
+      if (isNaN(basePrice) || basePrice <= 0) {
+        document.getElementById('result').textContent = "Please enter a valid base price.";
+        return;
+      }
+
+      const totalCharge = (basePrice + flatFee) / (1 - percentFee);
+      const surcharge = totalCharge - basePrice;
+
+      document.getElementById('result').textContent = 
+        `Surcharge: $${surcharge.toFixed(2)}, Customer pays: $${totalCharge.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
+
 
