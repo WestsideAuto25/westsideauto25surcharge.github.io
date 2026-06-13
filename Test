@@ -1,0 +1,480 @@
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  Wrench,
+  Truck,
+  Car,
+  Star,
+  ArrowRight,
+  Mail,
+  Gauge,
+  BatteryCharging,
+  Disc3,
+  Snowflake,
+  Settings,
+  ClipboardCheck,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const phone = "812-424-2220";
+const phoneLink = "tel:8124242220";
+const address = "2309 Harmony Way, Evansville, IN 47720";
+const mapsLink =
+  "https://maps.google.com/?q=2309+Harmony+Way+Evansville+IN+47720";
+
+const services = [
+  {
+    title: "Diagnostics & Check Engine Lights",
+    icon: Gauge,
+    href: "#diagnostics",
+    description:
+      "Computer diagnostics, warning lights, drivability issues, no-start concerns, sensor problems, and troubleshooting for gas vehicles and light trucks.",
+  },
+  {
+    title: "Brake Repair & Replacement",
+    icon: Disc3,
+    href: "#brakes",
+    description:
+      "Brake inspections, pads, rotors, calipers, brake fluid concerns, ABS lights, grinding noises, vibration, and stopping-performance issues.",
+  },
+  {
+    title: "Steering & Suspension",
+    icon: Settings,
+    href: "#suspension",
+    description:
+      "Repair for worn steering and suspension parts, clunks, pulling, loose steering, uneven tire wear, shocks, struts, ball joints, and tie rods.",
+  },
+  {
+    title: "Heating & Air Conditioning",
+    icon: Snowflake,
+    href: "#ac",
+    description:
+      "A/C performance checks, heat concerns, blower motor issues, refrigerant leaks, cabin comfort problems, and climate-control diagnostics.",
+  },
+  {
+    title: "Factory Scheduled Maintenance",
+    icon: ClipboardCheck,
+    href: "#maintenance",
+    description:
+      "Oil changes, filters, fluids, belts, hoses, inspections, mileage-based maintenance, and preventive service to help extend vehicle life.",
+  },
+  {
+    title: "Fleet & Light Truck Service",
+    icon: Truck,
+    href: "#fleet",
+    description:
+      "Maintenance and repair support for work trucks, small business vehicles, light-duty fleets, contractors, and local company vehicles.",
+  },
+  {
+    title: "Electrical Troubleshooting",
+    icon: BatteryCharging,
+    href: "#electrical",
+    description:
+      "Battery, charging, starting, lighting, wiring, intermittent electrical issues, power accessories, and related diagnostic testing.",
+  },
+  {
+    title: "Oil Changes & Preventive Care",
+    icon: Wrench,
+    href: "#oil-change",
+    description:
+      "Routine oil service, maintenance checks, fluid inspections, tire pressure checks, and recommendations to catch small problems early.",
+  },
+];
+
+const whyChoose = [
+  "Locally owned repair center serving Evansville’s west side",
+  "Clear estimates before major work begins",
+  "Service for small cars, trucks, and fleet vehicles",
+  "Quality-focused repairs with documented recommendations",
+];
+
+export default function WestsideAutoWebsite() {
+  return (
+    <div className="min-h-screen bg-zinc-950 text-white">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white p-1 shadow-lg shadow-red-900/30">
+              <img
+                src="/logo.png"
+                alt="Westside Auto & Truck Repair Center logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div>
+              <div className="text-lg font-bold tracking-tight">
+                Westside Auto & Truck
+              </div>
+              <div className="text-xs uppercase tracking-[0.25em] text-zinc-400">
+                Repair Center
+              </div>
+            </div>
+          </a>
+
+          <nav className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#fleet" className="hover:text-white">Fleet</a>
+            <a href="#seo" className="hover:text-white">Evansville Auto Repair</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
+
+          <a href={phoneLink}>
+            <Button className="rounded-full bg-red-600 hover:bg-red-700">
+              <Phone className="mr-2 h-4 w-4" /> {phone}
+            </Button>
+          </a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(220,38,38,0.35),transparent_35%),linear-gradient(135deg,#18181b,#09090b)]" />
+
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-5 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300">
+                <ShieldCheck className="mr-2 h-4 w-4 text-red-500" />
+                Auto repair and truck repair in Evansville, Indiana
+              </div>
+
+              <h1 className="max-w-2xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
+                From small cars to big trucks.
+              </h1>
+
+              <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
+                Westside Auto & Truck Repair Center provides dependable auto repair,
+                diagnostics, brake service, maintenance, A/C repair, electrical
+                testing, and light truck service for drivers and businesses on
+                Evansville’s west side.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href={phoneLink}>
+                  <Button size="lg" className="rounded-full bg-red-600 px-7 hover:bg-red-700">
+                    Call {phone} <Phone className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+
+                <a href="#services">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-white/20 bg-white/5 px-7 text-white hover:bg-white/10"
+                  >
+                    View Services
+                  </Button>
+                </a>
+              </div>
+
+              <div className="mt-8 grid max-w-xl gap-3 text-sm text-zinc-300 sm:grid-cols-3">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-red-500" /> Mon–Fri
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-red-500" /> 2309 Harmony Way
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="h-4 w-4 text-red-500" /> Quality Repairs
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="relative"
+            >
+              <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl shadow-black/40 backdrop-blur">
+                <div className="grid items-stretch gap-4 sm:grid-cols-2">
+                  <Card className="h-full border-white/10 bg-zinc-900/90 text-white">
+                    <CardContent className="flex h-full flex-col p-6">
+                      <Car className="mb-5 h-10 w-10 text-red-500" />
+                      <h3 className="text-xl font-bold">Daily Drivers</h3>
+                      <p className="mt-2 text-sm leading-6 text-zinc-400">
+                        Maintenance and repairs to keep your vehicle safe, reliable,
+                        and road-ready.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="h-full border-white/10 bg-zinc-900/90 text-white">
+                    <CardContent className="flex h-full flex-col p-6">
+                      <Truck className="mb-5 h-10 w-10 text-red-500" />
+                      <h3 className="text-xl font-bold">Trucks & Fleets</h3>
+                      <p className="mt-2 text-sm leading-6 text-zinc-400">
+                        Service support for work trucks, light-duty fleets, and
+                        business vehicles.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="mt-4 rounded-3xl bg-red-600 p-6">
+                  <p className="text-sm uppercase tracking-[0.25em] text-red-100">
+                    Featured Promise
+                  </p>
+                  <h3 className="mt-2 text-2xl font-black">
+                    Straight answers. Solid repairs.
+                  </h3>
+                  <p className="mt-2 text-red-50">
+                    We explain what we find, what matters now, and what can wait.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-7xl px-5 py-20">
+          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+                Services
+              </p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight">
+                Evansville auto repair services.
+              </h2>
+            </div>
+            <p className="max-w-xl text-zinc-400">
+              Click a service below to jump to more details about what Westside Auto
+              & Truck Repair Center can help with.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => {
+              const Icon = service.icon;
+
+              return (
+                <a key={service.title} href={service.href}>
+                  <Card className="h-full border-white/10 bg-zinc-900 text-white transition hover:-translate-y-1 hover:bg-zinc-800">
+                    <CardContent className="p-5">
+                      <Icon className="mb-4 h-8 w-8 text-red-500" />
+                      <h3 className="font-bold">{service.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-zinc-400">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-zinc-900/60 px-5 py-20">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+              Service Details
+            </p>
+            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight">
+              Helpful repair information for drivers searching for the right shop.
+            </h2>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {services.map((service) => {
+                const Icon = service.icon;
+
+                return (
+                  <div
+                    id={service.href.replace("#", "")}
+                    key={service.title}
+                    className="scroll-mt-28 rounded-3xl border border-white/10 bg-zinc-950 p-6"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-2xl bg-red-600/15 p-3">
+                        <Icon className="h-7 w-7 text-red-500" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold">{service.title}</h3>
+                        <p className="mt-3 leading-7 text-zinc-400">
+                          {service.description}
+                        </p>
+                        <a
+                          href={phoneLink}
+                          className="mt-4 inline-flex items-center font-semibold text-red-400 hover:text-red-300"
+                        >
+                          Call about this service <Phone className="ml-2 h-4 w-4" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-2">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+              Why Westside
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight">
+              A modern repair shop with old-school accountability.
+            </h2>
+            <p className="mt-5 leading-8 text-zinc-300">
+              Westside Auto & Truck Repair Center helps customers make smart repair
+              decisions with practical inspections, accurate estimates, and
+              communication that respects your time.
+            </p>
+          </div>
+
+          <div className="grid gap-4">
+            {whyChoose.map((item) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="mt-1 h-5 w-5 text-red-500" />
+                  <p className="text-zinc-200">{item}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="fleet" className="mx-auto max-w-7xl px-5 py-20">
+          <div className="rounded-[2rem] bg-white p-8 text-zinc-950 md:p-12">
+            <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+                  Business & Fleet
+                </p>
+                <h2 className="mt-3 text-4xl font-black tracking-tight">
+                  Keep your vehicles working, not waiting.
+                </h2>
+                <p className="mt-5 leading-8 text-zinc-600">
+                  Fleet and light truck repair in Evansville for contractors, small
+                  businesses, delivery vehicles, service trucks, and company vehicles
+                  that need dependable maintenance and repair support.
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-zinc-950 p-6 text-white">
+                <Truck className="mb-4 h-10 w-10 text-red-500" />
+                <h3 className="text-2xl font-bold">Fleet-friendly service</h3>
+                <p className="mt-2 text-zinc-400">
+                  Priority communication, preventive maintenance, and repair tracking
+                  for business vehicles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="seo" className="border-y border-white/10 bg-zinc-900/60">
+          <div className="mx-auto max-w-7xl px-5 py-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+              Evansville Auto Repair
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight">
+              Auto repair near Evansville’s west side.
+            </h2>
+
+            <div className="mt-6 grid gap-6 leading-8 text-zinc-300 md:grid-cols-2">
+              <p>
+                Looking for auto repair in Evansville, IN? Westside Auto & Truck
+                Repair Center is located at {address} and serves drivers on the west
+                side of Evansville and surrounding Vanderburgh County communities. Our
+                shop works on cars, light trucks, work vehicles, and fleet vehicles
+                with a focus on honest communication, practical diagnostics, and
+                reliable repair recommendations.
+              </p>
+
+              <p>
+                Whether you need brake repair, check engine light diagnostics, A/C
+                service, oil changes, steering and suspension repair, electrical
+                troubleshooting, or preventive maintenance, our team is here to help
+                keep your vehicle safe and dependable. Call {phone} for auto repair
+                and truck repair service in Evansville, Indiana.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="bg-red-600">
+          <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-100">
+                Contact Westside Auto & Truck
+              </p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight">
+                Ready to get your vehicle checked?
+              </h2>
+              <p className="mt-4 text-red-50">
+                Call the shop or get directions to our location on Harmony Way.
+              </p>
+
+              <div className="mt-5 space-y-2 text-red-50">
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" /> {phone}
+                </p>
+                <p className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" /> {address}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a href={phoneLink}>
+                <Button
+                  size="lg"
+                  className="w-full rounded-full bg-white text-zinc-950 hover:bg-zinc-100"
+                >
+                  <Phone className="mr-2 h-4 w-4" /> Call {phone}
+                </Button>
+              </a>
+
+              <a href={mapsLink} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full rounded-full border-white/40 bg-red-700/20 text-white hover:bg-red-700"
+                >
+                  <MapPin className="mr-2 h-4 w-4" /> Get Directions
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-white/10 bg-zinc-950">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 text-sm text-zinc-400 md:grid-cols-3">
+          <div>
+            <div className="font-bold text-white">
+              Westside Auto & Truck Repair Center
+            </div>
+            <p className="mt-2">From small cars to big trucks.</p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" /> {address}
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4" /> {phone}
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4" /> westsideautoandtruck@gmail.com
+            </div>
+          </div>
+
+          <div className="md:text-right">
+            © 2026 Westside Auto & Truck Repair Center. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
